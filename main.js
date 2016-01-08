@@ -5,6 +5,7 @@ var temp;
 var operator;
 var inp;
 var operated = false;
+var operatorSelected = false;
 // --- Document is Ready ---
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -63,7 +64,7 @@ function singClicked(event) {
 
 function dotClicked() {
 	type = event.target.innerHTML;
-	if ( displ.innerHTML.toString().indexOf('.') === -1 ) {
+	if ( displ.innerHTML.toString().indexOf('.') === -1 && (!operated)) {
 		displ.innerHTML += type;
 	}
 }
@@ -83,8 +84,11 @@ function operate(type) {
 	if (type !== "equal") {
 		operator = type;
 		console.log(type);
-		temp = Number(displ.innerHTML);
+		if (!operatorSelected) {
+			temp = Number(displ.innerHTML);
+		}
 		displ.innerHTML = 0;
+		operatorSelected = true;
 	} else {
 		console.log(type);
 		inp = Number(displ.innerHTML);
@@ -105,6 +109,7 @@ function operate(type) {
 			
 		}
 		operated = true;
+		operatorSelected = false;
 	}
 }
 
@@ -116,14 +121,19 @@ function reset() {
 	temp = 0;
 	imp = 0;
 	operated = false;
+	operatorSelected = false;
 }
 
 function sign() {
 	temp = displ.innerHTML * -1;
 	displ.innerHTML = temp;
+	operated = true;
+	operatorSelected = false;
 }
 
 function percent() {
 	temp = displ.innerHTML / 100;
 	displ.innerHTML = temp;
+	operated = true;
+	operatorSelected = false;
 }

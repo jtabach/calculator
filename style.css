@@ -4,7 +4,7 @@
 }
 
 .container {
-	width: 205px;
+	width: 325px;
 	margin: 0 auto;
 
 }
@@ -12,13 +12,13 @@
 .display {
 	margin-top: 200px;
 	text-align: right;
-	padding-top: 20px;
+	padding-top: 30px;
 	background: #331a00;
 	color: #e1e1d1;
 }
 
-h1 {
-	padding: 0 10px 2px 0;
+h2 {
+	padding: 0 20px 20px 0;
 	font-weight: 100;
 }
 
@@ -27,8 +27,8 @@ table {
 }
 
 td {
-	width: 50px;
-	height: 50px;
+	width: 80px;
+	height: 80px;
 	text-align:center;
 	border: 1px solid #331a00;
 	font-size: 20px
@@ -51,6 +51,6 @@ td {
 
 .zero {
 	text-align: left;
-	padding-left: 21px;
+	padding-left: 36px;
 }
 
