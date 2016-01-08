@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	for(i = 0; i < fab5.length; i++) {
 		fab5[i].addEventListener('click', fabClicked);
 	}
+	
 	for(i = 0; i < single.length; i++) {
 		single[i].addEventListener('click', singClicked);
 	}

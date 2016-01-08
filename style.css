@@ -33,7 +33,8 @@ td {
 	height: 80px;
 	text-align:center;
 	border: 1px solid #331a00;
-	font-size: 20px
+	font-size: 20px;
+	cursor: pointer;
 }
 
 .single {
@@ -41,14 +42,26 @@ td {
 	color: #331a00
 }
 
+.single:active {
+	background: #afaf83;
+}
+
 #nDot, .num{
 	background: #e1e1d1;
 	color: #331a00
 }
 
+#nDot:active, .num:active {
+	background: #d7d7c1
+}
+
 .oran {
 	background: #ffa64d;
 	color: #e1e1d1;
+}
+
+.oran:active {
+	background: #ff8000
 }
 
 .zero {
