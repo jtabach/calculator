@@ -1,0 +1,54 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	width: 205px;
+	margin: 0 auto;
+}
+
+.display {
+	margin-top: 200px;
+	text-align: right;
+	padding-top: 20px;
+	background: #331a00;
+	color: #e1e1d1;
+}
+
+h1 {
+	padding: 0 10px 2px 0;
+}
+
+table {
+	border-collapse:collapse;
+}
+
+td {
+	width: 50px;
+	height: 50px;
+	text-align:center;
+	border: 1px solid #331a00;
+	font-size: 20px
+}
+
+.single {
+	background: #c3c3a2;
+	color: #331a00
+}
+
+#nDot, .num{
+	background: #e1e1d1;
+	color: #331a00
+}
+
+.oran {
+	background: #ffa64d;
+	color: #e1e1d1;
+}
+
+.zero {
+	text-align: left;
+	padding-left: 21px;
+}
+
