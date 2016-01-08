@@ -3,6 +3,8 @@
 var displ;
 var temp;
 var operator;
+var inp;
+var operated = false;
 // --- Document is Ready ---
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -28,12 +30,11 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-var inp;
+
 
 // -- Click Handler for number buttons and dot --
 function numberClicked(event) {
 	var type = event.target.innerHTML;  // the clicked element
-	dis = type;
 	console.log(type);
 	appendNumToHead(type);
 }
@@ -67,11 +68,13 @@ function dotClicked() {
 
 function appendNumToHead(type) {
 	console.log(displ);
-	if (displ.innerHTML === "0") {
+	if (displ.innerHTML === "0" || operated) {
 		displ.innerHTML = type;
+		operated = false;
 	} else {
 		console.log(type);
 		displ.innerHTML += type;
+
 	}
 }
 
@@ -100,8 +103,7 @@ function operate(type) {
 				break;
 			
 		}
-		
-		
+		operated = true;
 	}
 }
 
@@ -112,12 +114,15 @@ function reset() {
 	displ.innerHTML = 0;
 	temp = 0;
 	imp = 0;
+	operated = false;
 }
 
 function sign() {
-	console.log('sign');
+	temp = displ.innerHTML * -1;
+	displ.innerHTML = temp;
 }
 
 function percent() {
-	console.log('percent');
+	temp = displ.innerHTML / 100;
+	displ.innerHTML = temp;
 }
