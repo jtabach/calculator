@@ -63,7 +63,9 @@ function singClicked(event) {
 
 function dotClicked() {
 	type = event.target.innerHTML;
+	if ( displ.innerHTML.toString().indexOf('.') === -1 ) {
 		displ.innerHTML += type;
+	}
 }
 
 function appendNumToHead(type) {
@@ -74,7 +76,6 @@ function appendNumToHead(type) {
 	} else {
 		console.log(type);
 		displ.innerHTML += type;
-
 	}
 }
 
