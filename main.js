@@ -3,9 +3,11 @@
 var displ;
 var temp;
 var operator;
-var inp;
+var inp = 0;
 var operated = false;
 var operatorSelected = false;
+var firstEqual = true;
+
 // --- Document is Ready ---
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -30,9 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
-
-
-
 // -- Click Handler for number buttons and dot --
 function numberClicked(event) {
 	var type = event.target.innerHTML;  // the clicked element
@@ -45,7 +44,6 @@ function fabClicked(event) {
 	var type = event.target.id
 	operate(type);
 }
-
 
 function singClicked(event) {
 	var type = event.target.id;
@@ -81,17 +79,24 @@ function appendNumToHead(type) {
 }
 
 function operate(type) {
+	
 	if (type !== "equal") {
 		operator = type;
 		console.log(type);
+
+		// allows user to change choice of operator
 		if (!operatorSelected) {
 			temp = Number(displ.innerHTML);
+			firstEqual = true;
 		}
 		displ.innerHTML = 0;
 		operatorSelected = true;
+		
 	} else {
 		console.log(type);
-		inp = Number(displ.innerHTML);
+		if (firstEqual) {
+			inp = Number(displ.innerHTML);
+		}
 		console.log(operator);
 		switch(operator) {
 			case "multiply":
@@ -106,14 +111,15 @@ function operate(type) {
 			case "add":
 				displ.innerHTML = temp + inp;
 				break;
-			
 		}
+		temp = Number(displ.innerHTML);
+		console.log("temp " + temp);
+		console.log("inp " + inp)
 		operated = true;
 		operatorSelected = false;
+		firstEqual = false;
 	}
 }
-
-
 
 function reset() {
 	console.log('reset');
@@ -136,4 +142,5 @@ function percent() {
 	displ.innerHTML = temp;
 	operated = true;
 	operatorSelected = false;
+	firstEqual = true;
 }
