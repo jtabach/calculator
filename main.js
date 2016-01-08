@@ -1,53 +1,49 @@
 // Calculator
 
-
+var displ;
+var temp;
+var operator;
 // --- Document is Ready ---
 document.addEventListener('DOMContentLoaded', function() {
 
 	var numB = document.getElementsByClassName('num');
-	var fab4 = document.getElementsByClassName('fab5');
-	var single = document.getElementsByClassName('single');	
+	var fab5 = document.getElementsByClassName('fab5');
+	var single = document.getElementsByClassName('single');
+	displ = document.getElementsByClassName('input')[0];
+	var dec = document.getElementById('nDot');	
 
 	for(i = 0; i < numB.length; i++) {
 		numB[i].addEventListener('click', numberClicked);
 	}
 
-	for(i = 0; i < fab4.length; i++) {
-		fab4[i].addEventListener('click', fabClicked);
+	for(i = 0; i < fab5.length; i++) {
+		fab5[i].addEventListener('click', fabClicked);
 	}
-
 	for(i = 0; i < single.length; i++) {
 		single[i].addEventListener('click', singClicked);
 	}
 
+	nDot.addEventListener('click', dotClicked);
+
 });
 
-// -- Click Handler for number buttons
+
+var inp;
+
+// -- Click Handler for number buttons and dot --
 function numberClicked(event) {
 	var type = event.target.innerHTML;  // the clicked element
-	console.log(type)
+	dis = type;
+	console.log(type);
+	appendNumToHead(type);
 }
 
+//  -- Click handler for mult div add sub equal --
 function fabClicked(event) {
-	var type = event.target.id;
-	switch(type) {
-		case "multiply":
-			multiply();
-			break;
-		case "divide":
-			divide();
-			break;
-		case "add":
-			add();
-			break;
-		case "subtract":
-			subtract();
-			break;
-		case "equal":
-			equal();
-			break;
-	}
+	var type = event.target.id
+	operate(type);
 }
+
 
 function singClicked(event) {
 	var type = event.target.id;
@@ -64,28 +60,58 @@ function singClicked(event) {
 	}
 }
 
-function multiply() {
-	console.log('mulitply');
+function dotClicked() {
+	type = event.target.innerHTML;
+		displ.innerHTML += type;
 }
 
-function divide() {
-	console.log('divide');
+function appendNumToHead(type) {
+	console.log(displ);
+	if (displ.innerHTML === "0") {
+		displ.innerHTML = type;
+	} else {
+		console.log(type);
+		displ.innerHTML += type;
+	}
 }
 
-function subtract() {
-	console.log('subtract');
+function operate(type) {
+	if (type !== "equal") {
+		operator = type;
+		console.log(type);
+		temp = Number(displ.innerHTML);
+		displ.innerHTML = 0;
+	} else {
+		console.log(type);
+		inp = Number(displ.innerHTML);
+		console.log(operator);
+		switch(operator) {
+			case "multiply":
+				displ.innerHTML = temp * inp;
+				break;
+			case "divide":
+				displ.innerHTML = temp / inp;
+				break;
+			case "subtract":
+				displ.innerHTML = temp - inp;
+				break;
+			case "add":
+				displ.innerHTML = temp + inp;
+				break;
+			
+		}
+		
+		
+	}
 }
 
-function add() {
-	console.log('add');
-}
 
-function equal() {
-	console.log('equal');
-}
 
 function reset() {
 	console.log('reset');
+	displ.innerHTML = 0;
+	temp = 0;
+	imp = 0;
 }
 
 function sign() {
